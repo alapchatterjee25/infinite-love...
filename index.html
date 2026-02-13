@@ -146,8 +146,53 @@ button{
     }
 }
 
+<head>
+...
+<style>
+
+/* your existing CSS above */
+
+/* ⬇️ PASTE IT HERE */
+.love-circle{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:55px;
+    margin:20px 0;
+
+    background:radial-gradient(circle, #ff69b4 0%, #ff1493 60%, transparent 70%);
+    box-shadow:
+        0 0 20px #ff1493,
+        0 0 40px #ff69b4,
+        0 0 80px #ff1493;
+
+    animation: pulseCircle 1.8s ease-in-out infinite;
+}
+
+@keyframes pulseCircle{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:
+            0 0 20px #ff1493,
+            0 0 40px #ff69b4;
+    }
+    50%{
+        transform:scale(1.15);
+        box-shadow:
+            0 0 40px #ff1493,
+            0 0 80px #ff69b4,
+            0 0 120px #ff1493;
+    }
+}
+
+/* your existing CSS below */
+
 </style>
 </head>
+
 
 <body>
 
@@ -223,9 +268,7 @@ yesBtn.addEventListener("click", () => {
 
     celebration.innerHTML = `
         <div class="yay">INFINITE LOVE (amader modhe) ♾️</div>
-       <div class="love-circle">
-    💝
-</div>
+       <div style="font-size:50px;margin:10px;">💝</div>
         <div class="love-text">I LOVE YOU INFINITE MY BUBBU!!! 🫂</div>
         <div style="margin-top:10px;">Forever Starts Now 💗</div>
     `;
@@ -237,4 +280,5 @@ yesBtn.addEventListener("click", () => {
 
 </body>
 </html>
+
 
