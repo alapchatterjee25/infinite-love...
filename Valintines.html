@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Infinite Love 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#ffd6e7,#ff6fa5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    overflow-x:hidden;
+}
+
+/* Main Content */
+.container{
+    max-width:600px;
+    width:100%;
+}
+
+.bear{
+    font-size:60px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:2rem;
+    margin-top:10px;
+}
+
+.subtitle, .closing{
+    margin:12px 0;
+}
+
+/* Question */
+.question{
+    font-family:'Dancing Script',cursive;
+    font-size:1.8rem;
+    margin-top:20px;
+}
+
+/* Buttons */
+.buttons{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+button{
+    padding:12px 25px;
+    font-size:1rem;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+}
+
+#yesBtn{
+    background:linear-gradient(45deg,#ff1744,#ff6f91);
+    color:white;
+    box-shadow:0 0 15px rgba(255,0,80,0.6);
+}
+
+#noBtn{
+    background:white;
+    color:red;
+    border:2px solid red;
+    position:relative;
+}
+
+/* Celebration */
+.celebration{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffd6e7,#ff6fa5);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.yay{
+    font-size:2.5rem;
+    font-weight:bold;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+}
+
+.love-text{
+    margin-top:20px;
+    font-size:1.8rem;
+    font-weight:800;
+    color:white;
+    text-align:center;
+    text-shadow:
+        0 0 10px #ff1493,
+        0 0 20px #ff1493,
+        0 0 40px #ff69b4,
+        0 0 60px #ff69b4;
+    animation: glowZoom 1.5s ease-in-out infinite;
+}
+
+/* Glow + Zoom Animation */
+@keyframes glowZoom{
+    0%,100%{
+        transform:scale(1);
+        text-shadow:
+            0 0 10px #ff1493,
+            0 0 20px #ff1493,
+            0 0 40px #ff69b4;
+    }
+    50%{
+        transform:scale(1.2);
+        text-shadow:
+            0 0 20px #ff1493,
+            0 0 40px #ff1493,
+            0 0 80px #ff69b4,
+            0 0 100px #ff69b4;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainContent">
+
+    <div class="bear">🐻</div>
+
+    <h1>Almost Two Years With You… And I Still Choose You Every Day Bubbu 💖</h1>
+
+    <div class="subtitle">
+        I may not be perfect... but I promise to keep growing into the man you deserve! 🫠
+    </div>
+
+    <div class="closing">
+        You’re not just my love... you’re the partner I always dreamed my future would hold! 😌💗
+    </div>
+
+    <div class="closing">
+        Let’s grow, learn, fight, laugh, and build our forever together! 🫂💝
+    </div>
+
+    <div class="question">
+        Will you stay by my side and turn our love story into forever?
+    </div>
+
+    <div class="buttons">
+        <button id="yesBtn">Yes 💖</button>
+        <button id="noBtn">No 😅</button>
+    </div>
+
+</div>
+
+<script>
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+const messages = [
+"Nope 😒",
+"Think again 👀",
+"Not happening 😤",
+"Try once more 🙄",
+"Are you sure? 😏"
+];
+
+let msgIndex = 0;
+
+// MOBILE SAFE MOVE
+function moveNo(){
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    noBtn.innerText = messages[msgIndex];
+    msgIndex = (msgIndex + 1) % messages.length;
+}
+
+noBtn.addEventListener("click", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+yesBtn.addEventListener("click", () => {
+
+    document.getElementById("mainContent").style.display="none";
+
+    const celebration = document.createElement("div");
+    celebration.classList.add("celebration");
+
+    celebration.innerHTML = `
+        <div class="yay">INFINITE LOVE (amader modhe) ♾️</div>
+        <div style="font-size:50px;margin:10px;">💝</div>
+        <div class="love-text">I LOVE YOU INFINITE MY BUBBU!!! 🫂</div>
+        <div style="margin-top:10px;">Forever Starts Now 💗</div>
+    `;
+
+    document.body.appendChild(celebration);
+});
+
+</script>
+
+</body>
+</html>
